@@ -27,6 +27,6 @@ Steps:
     * Normalize the new sample weight column
 5. Resample
     * Use the prefix sum of the new sample weight as a distribution. (e.g. [0.07, 0.07, 0.49, ...] -> [0.07, 0.14, 63, ...]
-    * Generate a random number between 0 and 1, if it falls into the interval of [distribution[i-1], distribution[i]), pick sample i
+    * Generate a random number between 0 and 1, if it falls into [distribution[i-1], distribution[i]), pick sample i
     * Generate new samples from the original sample set until they are of same size
     * Give all new samples the same weight as before

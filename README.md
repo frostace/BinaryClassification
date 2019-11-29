@@ -1,6 +1,14 @@
 # DecisionTreeVisulizer
  To visualize decision tree, random forest, ...
 
+
+### Overall Bugs:
+1. there exist a situation s.t. a question can increase the gini info instead of decreasing it or at least keeping it remain
+2. ~~find_best_question function is considering 'CLASS' column as an attribute to try to raise a question~~
+3. ~~when raising a question, we should skip meaningless reference values like 'null' and 'nan', etc.~~
+4. when answering a question, say, tring to compare 'null' to a certain reference value, we should roll a dice to decide, which branch to go.
+
+
 ## Simple Decision Tree
 [[0.001, 0.7233235569614422, 1.5288949012756348], 
 [0.002, 0.6979157059854284, 5.077696084976196], 
@@ -13,6 +21,10 @@
 [0.009, 0.6929816414352497, 52.855583906173706], 
 [0.01, 0.7081829028309342, 66.66273093223572]]
 
+## Random Forest
+
+### bugs:
+1. sometimes, i run many times for the random forest, the acc remains the same, which is weird, it should at least change a little bit.
 
 ## Adaboost
 3 ideas

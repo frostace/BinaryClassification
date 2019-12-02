@@ -18,23 +18,23 @@
 
 ### Intro:
 1. Given Linear Regression Model: 
-	* yita_i = beta_0 + beta_1 * x_1i + ... + beta_p * x_pi
+	* $\eta_i = \beta_0 + \beta_1 x_{1i} + ... + \beta_p x_{pi}$
 2. Link Function: 
-	* g(mu_i) = yita_i
+	* $g(\mu_i) = \eta_i$
 	* where, mu_i is our outcome
-	* Describes how the mean E(Y_i) = mu_i depends on the linear predictor
+	* Describes how the mean $E(Y_i) = \mu_i$ depends on the linear predictor
 3. Binary Classification Case:
 	* link function must map from (0, 1) to (-inf, inf)
-	* logit function: g(mu_i) = logit(mu_i) = log(mu_i / (1 - mu_i))
-	* probit function: g(mu_i) = fai^(-1)(mu_i)
+	* logit function: $g(\mu_i) = logit(\mu_i) = log_e(\frac{\mu_i}{1 - \mu_i})$
+	* probit function: $g(\mu_i) = \phi^{-1}(\mu_i)$
 		* where, fai() is the CDF of the standard normal distribution.
 
 ### Logistic Model:
 1. Model the probability that Y equals 1, given X:
 	* p(X) = P(Y = 1 | X)
-	* logit(p(X)) = log(p(X) / (1 - p(X))) = beta.T * X
-	* p(X) = exp(beta.T * X) / (1 + exp(beta.T * X))
-	* p(X), namely \hat y_i, is the probability
+	* $logit(p(X)) = log_e(\frac{p(X)}{1 - p(X)}) = \beta^T X$
+	* p(X) = $\frac{e^{\beta^T X}}{1 + e^{\beta^T X}}$
+	* p(X), namely $\hat y_i$, is the probability of observing $y_i$
 
 ### Loss Function:
 1. Loss Function:
@@ -43,7 +43,7 @@
 	* 
 
 2. Maximum Likelihood Estimator (MLE):
-	* Minimizing the last loss function equals to maximizing (\hat y_i)^y_i * (1 - \hat y_i)^(1 - y_i)
+	* Minimizing the last loss function equals to maximizing $(\hat y_i)^{y_i} * (1 - \hat y_i)^{1 - y_i}$
 	* which exactly refers to the probability of observing y_i when y_i follows the Bernoulli distribution
 
 ### Performance Evaluation:
@@ -59,9 +59,9 @@
 		* TN: Prediction is True + Actual value is Negative
 		* FN: Prediction is False + Actual value is Negative
 	* Accuracy:
-		* Accuracy = (TP + TN) / (TP + FN + FP + TN)
-		* Sensitivity = TP / (TP + FN)
-		* Specificity = TN / (TN + FP)
+		* Accuracy = $\frac{TP + TN}{TP + FN + FP + TN}$
+		* Sensitivity = $\frac{TP}{TP + FN}$
+		* Specificity = $\frac{TN}{TN + FP}$
 
 3. ROC Curve:
 	* for all possible cutoff points, compute FP and TP, plot every coords: (FP, TP) on a figure

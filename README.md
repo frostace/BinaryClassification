@@ -16,7 +16,7 @@
 
 ### Intro:
 1. Given Linear Regression Model: 
-	* 'yita_i = beta_0 + beta_1 * x_1i + ... + beta_p * x_pi'
+	* yita_i = beta_0 + beta_1 * x_1i + ... + beta_p * x_pi
 2. Link Function: 
 	* g(mu_i) = yita_i
 	* where, mu_i is our outcome
@@ -28,7 +28,10 @@
 		* where, fai() is the CDF of the standard normal distribution.
 
 ### Logistic Model:
-
+1. Model the probability that Y equals 1, given X:
+	* p(X) = P(Y = 1 | X)
+	* logit(p(X)) = log(p(X) / (1 - p(X))) = beta.T * X
+	* p(X) = exp(beta.T * X) / (1 + exp(beta.T * X))
 ### Loss Function
 
 ### Overall Bugs:

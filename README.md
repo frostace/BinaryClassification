@@ -12,7 +12,9 @@
 ## Logistic Regression:
 ### Notation:
 1. X: n-dimentional input characteristics
-2. $\beta$: 
+2. \beta:
+3. \hat y_i: 
+4. y_i: 
 
 ### Intro:
 1. Given Linear Regression Model: 
@@ -32,8 +34,21 @@
 	* p(X) = P(Y = 1 | X)
 	* logit(p(X)) = log(p(X) / (1 - p(X))) = beta.T * X
 	* p(X) = exp(beta.T * X) / (1 + exp(beta.T * X))
-### Loss Function
+	* p(X), namely \hat y_i, is the probability
 
+### Loss Function:
+	* Loss = sigma_i[(-y_i * log(\hat y_i)) * -(1 - y_i)log(1 - \hat y_i)]
+
+### Maximum Likelihood Estimator (MLE):
+	* Minimizing the last loss function equals to maximizing (\hat y_i)^y_i * (1 - \hat y_i)^(1 - y_i)
+	* which exactly refers to the probability of observing y_i when y_i follows the Bernoulli distribution
+
+### Decision Boundary:
+	* out predicted outcome \hat y_i is a number between 0 and 1, we need another mapping to map the region to a binary output, thus, a decision boundary (cutoff point).
+	* we usually use 0.5 as a cutoff point blindly.
+
+### Performance Evaluation:
+	
 ### Overall Bugs:
 1. there exist a situation s.t. a question can increase the gini info instead of decreasing it or at least keeping it remain
 2. ~~find_best_question function is considering 'CLASS' column as an attribute to try to raise a question~~

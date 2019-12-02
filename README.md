@@ -4,17 +4,19 @@
 # Objectives:
 1.	Estimate how many variants will have conflicting classifications, why are they considered to have conflicting classifications?
 	Methodology: Logistic Regression
+	* Given the loss function, how to apply gradient descent
+	* Can I simply consider null entries as 0 inputs?
 2.	Evaluate the importance of all these features, find the most important one and analyze why is it so important.
-	Methodology: Decision Tree, Bootstrap (and probably MLE)
+  Methodology: Decision Tree, Bootstrap (and probably MLE)
 3.	Redo Question 1 with classification label unknown, compare the 2 results.
-	Methodology: K-means Clustering
+  Methodology: K-means Clustering
 
 ## Logistic Regression:
 ### Notation:
 1. X: n-dimentional input characteristics
-2. \beta:
-3. \hat y_i: 
-4. y_i: 
+2. $\beta$: Coefficients in our linear regression model
+3. $y_i$: Actuall (Observed)  Outcome of an input $X_i$
+4. $\hat y_i$: probability of observing the outcome $y_i$
 
 ### Intro:
 1. Given Linear Regression Model: 
@@ -38,9 +40,7 @@
 
 ### Loss Function:
 1. Loss Function:
-	* Loss = $\sum_i[(-y_i * log(\hat y_i)) * -(1 - y_i)log(1 - \hat y_i)]$
-
-	* 
+	* $J(\beta) = \sum_i[(-y_i * log(\hat y_i)) * -(1 - y_i)log(1 - \hat y_i)]$
 
 2. Maximum Likelihood Estimator (MLE):
 	* Minimizing the last loss function equals to maximizing $(\hat y_i)^{y_i} * (1 - \hat y_i)^{1 - y_i}$

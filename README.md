@@ -4,13 +4,27 @@
 # Objectives:
 1.	Estimate how many variants will have conflicting classifications, why are they considered to have conflicting classifications?
 	Methodology: Logistic Regression
-	* Given the loss function, how to apply gradient descent
+	* Given the loss function, how to apply gradient descent? don't know so I used sklearn lib.
 	* Can I simply consider null entries as 0 inputs?
 	* Mapping from categorical data to numerical data
 	* Now that they are all numerical data, i limit their values within [0, 1] for computation cost
+	* Use this result as a benchmark, let's move on
+	
 2.	Evaluate the importance of all these features, find the most important one and analyze why is it so important.
   Methodology: Decision Tree, Bootstrap (and probably MLE)
-3.	Redo Question 1 with classification label unknown, compare the 2 results.
+  
+  * We can tell apart a dog from a cat immediately with a glance, but what if we cannot see the whole picture, we are just allowed to ask yes or no questions??
+  * This is basically the main idea of decision tree.
+  * Discuss a little about find_best_question, give program flow chart
+  * Discuss Simple Decision tree performance
+    * Acc
+    * ROC -> AUC
+  * Improve with bootstrapping: random forest
+    * Compare Performance
+  * Improve with Adaboost:
+    * Compare Performance
+  
+3. Redo Question 1 with classification label unknown, compare the 2 results.
   Methodology: K-means Clustering
 
 ## Logistic Regression:

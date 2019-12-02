@@ -6,6 +6,8 @@
 	Methodology: Logistic Regression
 	* Given the loss function, how to apply gradient descent
 	* Can I simply consider null entries as 0 inputs?
+	* Mapping from categorical data to numerical data
+	* Now that they are all numerical data, i limit their values within [0, 1] for computation cost
 2.	Evaluate the importance of all these features, find the most important one and analyze why is it so important.
   Methodology: Decision Tree, Bootstrap (and probably MLE)
 3.	Redo Question 1 with classification label unknown, compare the 2 results.

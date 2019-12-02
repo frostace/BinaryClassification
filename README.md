@@ -4,6 +4,7 @@
 # Objectives:
 1.	Estimate how many variants will have conflicting classifications, why are they considered to have conflicting classifications?
 	Methodology: Logistic Regression
+	
 	* Given the loss function, how to apply gradient descent? don't know so I used sklearn lib.
 	
 	* Can I simply consider null entries as 0 inputs?

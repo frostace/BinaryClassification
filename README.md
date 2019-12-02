@@ -14,9 +14,9 @@
 1. X: n-dimentional input characteristics
 2. $\beta$: 
 
-### Steps:
+### Intro:
 1. Given Linear Regression Model: 
-	* yita_i = beta_0 + beta_1 * x_1i + ... + beta_p * x_pi
+	* 'yita_i = beta_0 + beta_1 * x_1i + ... + beta_p * x_pi'
 2. Link Function: 
 	* g(mu_i) = yita_i
 	* where, mu_i is our outcome
@@ -27,6 +27,9 @@
 	* probit function: g(mu_i) = fai^(-1)(mu_i)
 		* where, fai() is the CDF of the standard normal distribution.
 
+### Logistic Model:
+
+### Loss Function
 
 ### Overall Bugs:
 1. there exist a situation s.t. a question can increase the gini info instead of decreasing it or at least keeping it remain

@@ -62,6 +62,15 @@
 		* Specificity = TN / (TN + FP)
 
 3. ROC Curve:
+	* for all possible cutoff points, compute FP and TP, plot every coords: (FP, TP) on a figure
+	* Null Model:
+		randomly assign a prediction above the cutoff point as True / False
+		randomly assign a prediction below the cutoff point as True / False
+		So, FP = TP
+	* AUC (Area under the ROC Curve)
+		* the steeper the ROC Curve, the greater the predictive power
+		* AUC = 0.5 -> no predictive power
+		* AUC = 1 -> perfect predictive power
 
 ### Overall Bugs:
 1. there exist a situation s.t. a question can increase the gini info instead of decreasing it or at least keeping it remain

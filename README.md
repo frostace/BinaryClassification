@@ -1,6 +1,15 @@
 # DecisionTreeVisulizer
  To visualize decision tree, random forest, ...
 
+# Objectives:
+1.	Estimate how many variants will have conflicting classifications, why are they considered to have conflicting classifications?
+	Methodology: Logistic Regression
+2.	Evaluate the importance of all these features, find the most important one and analyze why is it so important.
+	Methodology: Decision Tree, Bootstrap (and probably MLE)
+3.	Redo Question 1 with classification label unknown, compare the 2 results.
+	Methodology: K-means Clustering
+
+
 
 ### Overall Bugs:
 1. there exist a situation s.t. a question can increase the gini info instead of decreasing it or at least keeping it remain

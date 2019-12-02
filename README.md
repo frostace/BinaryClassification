@@ -37,18 +37,32 @@
 	* p(X), namely \hat y_i, is the probability
 
 ### Loss Function:
+1. Loss Function:
 	* Loss = sigma_i[(-y_i * log(\hat y_i)) * -(1 - y_i)log(1 - \hat y_i)]
 
-### Maximum Likelihood Estimator (MLE):
+2. Maximum Likelihood Estimator (MLE):
 	* Minimizing the last loss function equals to maximizing (\hat y_i)^y_i * (1 - \hat y_i)^(1 - y_i)
 	* which exactly refers to the probability of observing y_i when y_i follows the Bernoulli distribution
 
-### Decision Boundary:
-	* out predicted outcome \hat y_i is a number between 0 and 1, we need another mapping to map the region to a binary output, thus, a decision boundary (cutoff point).
+### Performance Evaluation:
+1. Decision Boundary:
+	* our predicted outcome \hat y_i is a number between 0 and 1, we need another mapping to map the region to a binary output, thus, a decision boundary (cutoff point).
 	* we usually use 0.5 as a cutoff point blindly.
 
-### Performance Evaluation:
-	
+2. Evaluation:
+	* Confusion Matrix:
+		First go true or not, then go actual value (observed value)
+		* TP: Prediction is True + Actual value is Positive
+		* FP: Prediction is False + Actual value is Positive
+		* TN: Prediction is True + Actual value is Negative
+		* FN: Prediction is False + Actual value is Negative
+	* Accuracy:
+		* Accuracy = (TP + TN) / (TP + FN + FP + TN)
+		* Sensitivity = TP / (TP + FN)
+		* Specificity = TN / (TN + FP)
+
+3. ROC Curve:
+
 ### Overall Bugs:
 1. there exist a situation s.t. a question can increase the gini info instead of decreasing it or at least keeping it remain
 2. ~~find_best_question function is considering 'CLASS' column as an attribute to try to raise a question~~

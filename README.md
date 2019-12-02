@@ -9,7 +9,10 @@
 3.	Redo Question 1 with classification label unknown, compare the 2 results.
 	Methodology: K-means Clustering
 
-
+## Logistic Regression:
+### Notation:
+1. X: n-dimentional input characteristics
+2. \beta
 
 ### Overall Bugs:
 1. there exist a situation s.t. a question can increase the gini info instead of decreasing it or at least keeping it remain

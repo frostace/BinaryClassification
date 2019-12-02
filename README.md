@@ -38,7 +38,9 @@
 
 ### Loss Function:
 1. Loss Function:
-	* Loss = sigma_i[(-y_i * log(\hat y_i)) * -(1 - y_i)log(1 - \hat y_i)]
+	* Loss = $\sum_i[(-y_i * log(\hat y_i)) * -(1 - y_i)log(1 - \hat y_i)]$
+
+	* 
 
 2. Maximum Likelihood Estimator (MLE):
 	* Minimizing the last loss function equals to maximizing (\hat y_i)^y_i * (1 - \hat y_i)^(1 - y_i)

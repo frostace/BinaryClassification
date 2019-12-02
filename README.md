@@ -36,14 +36,33 @@
   Methodology: Decision Tree, Bootstrap (and probably MLE)
   
   * We can tell apart a dog from a cat immediately with a glance, but what if we cannot see the whole picture, we are just allowed to ask yes or no questions??
+  
   * This is basically the main idea of decision tree.
+  
   * Discuss a little about find_best_question, give program flow chart
+  
   * Discuss Simple Decision tree performance
+  
     * Acc
+  
+      ![Decision Tree ACC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree ACC.png)
+  
     * ROC -> AUC
-  * Improve with bootstrapping: random forest
-    * Compare Performance
+  
+      ![Decision Tree ROC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree ROC.png)
+  
+  * Improve with bootstrapping: Random Forest
+  
+    * Acc
+  
+      ![Random Forest ACC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Random Forest ACC.png)
+  
+    * ROC -> AUC
+  
+      ![Random Forest ROC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Random Forest ROC.png)
+  
   * Improve with Adaboost:
+  
     * Compare Performance
   
 3. Redo Question 1 with classification label unknown, compare the 2 results.

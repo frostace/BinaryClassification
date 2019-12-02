@@ -5,10 +5,31 @@
 1.	Estimate how many variants will have conflicting classifications, why are they considered to have conflicting classifications?
 	Methodology: Logistic Regression
 	* Given the loss function, how to apply gradient descent? don't know so I used sklearn lib.
+	
 	* Can I simply consider null entries as 0 inputs?
+	
 	* Mapping from categorical data to numerical data
+	
 	* Now that they are all numerical data, i limit their values within [0, 1] for computation cost
-	* Use this result as a benchmark, let's move on
+	
+	* Logistic Performance:
+	
+	  * Acc
+	
+	    ![Logistic ACC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Logistic ACC.png)
+	
+	    if we pick 0.95 as cutoff point, Accuracy would be 71%.
+	
+	  * ROC
+	
+	    ![Logistic ROC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Logistic ROC.png)
+	
+	  * AUC = 0.574, slightly larger than 0.5, not so good
+	
+	* Use this result as a benchmark, let's move on and see if we can do better.
+	
+	  * ACC = 71%
+	  * AUC = 0.574
 	
 2.	Evaluate the importance of all these features, find the most important one and analyze why is it so important.
   Methodology: Decision Tree, Bootstrap (and probably MLE)
@@ -80,7 +101,7 @@
 		* Specificity = $\frac{TN}{TN + FP}$
 
 3. ROC Curve:
-	* for all possible cutoff points, compute FP and TP, plot every coords: (FP, TP) on a figure
+	* for all possible cutoff points, compute Specificity and Sensitivity, plot every coords: (Specificity, Sensitivity) on a figure
 	* Null Model:
 		randomly assign a prediction above the cutoff point as True / False
 		randomly assign a prediction below the cutoff point as True / False

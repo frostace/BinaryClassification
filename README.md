@@ -69,8 +69,18 @@
   
 3. Redo Question 1 with classification label unknown, compare the 2 results.
   Methodology: K-means Clustering
+  
+  ```markdown
+  training_size: 65188
+  winner:  48053 17135
+  Acc:  0.6217555378290482
+  Counter({0.0: 36075, 1.0: 11978}) Counter({0.0: 12679, 1.0: 4456})
+  ```
+  
+  Acc = 62.2%
 
 ## Logistic Regression:
+
 ### Notation:
 1. X: n-dimentional input characteristics
 2. $\beta$: Coefficients in our linear regression model
@@ -113,10 +123,10 @@
 2. Evaluation:
 	* Confusion Matrix:
 		First go true or not, then go actual value (observed value)
-		* TP: Prediction is True + Actual value is Positive
-		* FP: Prediction is False + Actual value is Positive
-		* TN: Prediction is True + Actual value is Negative
-		* FN: Prediction is False + Actual value is Negative
+		* TP: Prediction is True + Predicted value is Positive
+		* FP: Prediction is False + Predicted value is Positive
+		* TN: Prediction is True + Predicted value is Negative
+		* FN: Prediction is False + Predicted value is Negative
 	* Accuracy:
 		* Accuracy = $\frac{TP + TN}{TP + FN + FP + TN}$
 		* Sensitivity (TPR) = $\frac{TP}{TP + FN}$

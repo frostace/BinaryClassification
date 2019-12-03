@@ -49,6 +49,8 @@
   
     * ROC -> AUC
   
+      possible problem: cutoff is not working, try printing true rate values
+      
       ![Decision Tree ROC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree ROC.png)
   
   * Improve with bootstrapping: Random Forest
@@ -117,8 +119,8 @@
 		* FN: Prediction is False + Actual value is Negative
 	* Accuracy:
 		* Accuracy = $\frac{TP + TN}{TP + FN + FP + TN}$
-		* Sensitivity = $\frac{TP}{TP + FN}$
-		* Specificity = $\frac{TN}{TN + FP}$
+		* Sensitivity (TPR) = $\frac{TP}{TP + FN}$
+		* Specificity (FPR) = $\frac{TN}{TN + FP}$
 
 3. ROC Curve:
 	* for all possible cutoff points, compute Specificity and Sensitivity, plot every coords: (Specificity, Sensitivity) on a figure
@@ -176,7 +178,7 @@ Steps:
 
 4. Update sample weight as following principle: 
 
-  * Amount_of_say = 0.5 * ln((1 - total_error) / total_error) 
+  * Amount_of_say = $0.5 * ln(\frac{1 - total error}{total error}) $
 
   * For those which we have misclassified, new_weight = ori_weight * e^(Amount_of_say) 
 

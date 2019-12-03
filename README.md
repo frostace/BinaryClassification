@@ -1,7 +1,7 @@
 # DecisionTreeVisulizer
  To visualize decision tree, random forest, ...
 
-# Objectives:
+# Project Objectives:
 1.	Estimate how many variants will have conflicting classifications, why are they considered to have conflicting classifications?
 	Methodology: Logistic Regression
 	
@@ -131,7 +131,94 @@
 		* AUC = 0.5 -> no predictive power
 		* AUC = 1 -> perfect predictive power
 
+## Random Forest
+
+1. Building a Random Forest: 
+
+	* Step1: 
+		* Create a bootstrapped dataset 
+	* Step2: 
+		* Create a decision tree with the bootstrapped dataset, but only use a random subset of variables (or columns) at each step 
+  	* We are randomly pick x variables, or randomly pick variables from a given set of x variables 
+	* Step3: 
+	* Return to Step1 
+
+1. Estimate the accuracy of the random forest with out-of-bag data 
+2. Change the number of variables used per step 
+3. - Typically, we start by using the sqrt of the number of variables and try a few settings above and below that value 
+
+[Ref] (https://www.youtube.com/watch?v=J4Wdy0Wc_xQ)
+
+## Adaboost
+
+3 ideas 
+
+1. Combination of weak learners 
+
+	* Adaboost combines a lot of weak learners to make classifications 
+	* Weak learners are almost always stumps 
+
+1. Weight 
+
+	* Some stumps get more say in the classification than others 
+
+1. Dependency on Previous mistakes 
+
+	* Each stump is made by taking previous stump’s mistakes into account 
+
+Steps: 
+
+1. Initialize a panda dataframe with equal sample weights 
+
+2. Iterate through all attributes to generate a decision stump for each attribute 
+
+3. See which one makes the smallest total error, pick this as our first decision stump 
+
+4. Update sample weight as following principle: 
+
+  * Amount_of_say = 0.5 * ln((1 - total_error) / total_error) 
+
+  * For those which we have misclassified, new_weight = ori_weight * e^(Amount_of_say) 
+
+  * For those which we have correctly classified, new_weight = ori_weight * e^(-Amount_of_say) 
+
+  * Normalize the new sample weight column 
+
+5. Resample 
+
+  * Use the prefix sum of the new sample weight as a distribution. (e.g. [0.07, 0.07, 0.49, ...] -> [0.07, 0.14, 63, ...] 
+
+  * Generate a random number between 0 and 1, if it falls into [distribution[i-1], distribution[i]), pick sample i 
+
+  * Generate new samples from the original sample set until they are of same size 
+
+  * Give all new samples the same weight as before 
+
+Ref: https://www.youtube.com/watch?v=LsK-xG1cLYA 
+
+## K means
+
+Steps: 
+
+1. Select the number of clusters you want to identify in your data 
+2. Randomly select k distinct data points 
+3. Measure the distance between the 1st point and the k initial clusters 
+4. Assign the 1st point to the nearest cluster 
+5. Iterate through all points and do step 3 & 4 
+6. Calculate the mean of each cluster 
+7. Use the calculated mean of each cluster as k new initial data points and restart from 3 
+8. Loop until the mean converge 
+9. Do Step 1 - 8 for n times, select the best one 
+
+How to select K? 
+
+- Try various K values, evaluate the performance by computing the total variation of the clusters 
+- Plot the Reduction of variation - #number of clusters figure, and find the elbow point and its corresponding K 
+
+Ref: https://www.youtube.com/watch?v=4b5d3muPQmA
+
 ### Overall Bugs:
+
 1. there exist a situation s.t. a question can increase the gini info instead of decreasing it or at least keeping it remain
 2. ~~find_best_question function is considering 'CLASS' column as an attribute to try to raise a question~~
 3. ~~when raising a question, we should skip meaningless reference values like 'null' and 'nan', etc.~~

@@ -89,36 +89,26 @@ for rate in np.arange(rate_lower, rate_higher + rate_step, rate_step):
 		# 01(1) -> FN
 		# 10(2) -> FP
 		# 11(3) -> TP
-		for cutoff in np.arange(0, 1 + step_size, step_size):
-		    Confusion = {'TN': 0, 'FN': 0, 'FP': 0, 'TP': 0}
-		    for row in testing_data:
-		        # prediction is a counter of label 1 and 0
-		        pred_counter = tree.classify(row, tree.root)
-		        true_rate = pred_counter.get(1, 0) / (pred_counter.get(1, 0) + pred_counter.get(0, 0) + 0.00000001)
-		#         print(true_rate)
-		        true_pred = 1 if true_rate >= cutoff else 0
-		        indicator = (true_pred << 1) + row[-1]
-		        # accordingly update confusion matrix
-		        Confusion[CMap[indicator]] += 1
-		    # concatenate the confusion matrix values into the overall ROC Table
-		    thisline = [cutoff] + list(Confusion.values()) + [(Confusion['TP'] + Confusion['TN']) / sum(Confusion.values())]
-		    ROC = ROC.with_row(thisline)
-		ROC = ROC.with_column('SENSITIVITY', ROC.apply(lambda TP, FN: TP / (TP + FN + 0.00000001), 'TP', 'FN'))
-		ROC = ROC.with_column('FPR', ROC.apply(lambda TN, FP: FP / (TN + FP + 0.00000001), 'TN', 'FP'))
-		ROC = ROC.with_column('FMEAS', ROC.apply(lambda TP, FP, FN: 2 * (TP / (TP + FN + 0.00000001)) * (TP / (TP + FP + 0.00000001)) / (TP / (TP + FN + 0.00000001) + TP / (TP + FP + 0.00000001) + 0.00000001), 'TP', 'FP', 'FN'))
-
-		# Original Testing
-		# ===========================================================
-
-		accuracy = []
+		cutoff = 0.5
+		# for cutoff in np.arange(0, 1 + step_size, step_size):
+		Confusion = {'TN': 0, 'FN': 0, 'FP': 0, 'TP': 0}
 		for row in testing_data:
-		    classification = tree.classify(row, tree.root)
-		    if len(classification) == 1:
-		        accuracy.append(int(classification.get(row[-1], 0) > 0))
-		    else:
-		        tot = sum(classification.values())
-		        accuracy.append(classification.get(row[-1], 0) / tot)
-		final_acc += sum(accuracy) / len(accuracy)
+			# prediction is a counter of label 1 and 0
+			pred_counter = tree.classify(row, tree.root)
+			true_rate = pred_counter.get(1, 0) / (pred_counter.get(1, 0) + pred_counter.get(0, 0) + 0.00000001)
+			#         print(true_rate)
+			true_pred = 1 if true_rate >= cutoff else 0
+			indicator = (true_pred << 1) + row[-1]
+			# accordingly update confusion matrix
+			Confusion[CMap[indicator]] += 1
+		#     # concatenate the confusion matrix values into the overall ROC Table
+		#     thisline = [cutoff] + list(Confusion.values()) + [(Confusion['TP'] + Confusion['TN']) / sum(Confusion.values())]
+		#     ROC = ROC.with_row(thisline)
+		# ROC = ROC.with_column('SENSITIVITY', ROC.apply(lambda TP, FN: TP / (TP + FN + 0.00000001), 'TP', 'FN'))
+		# ROC = ROC.with_column('FPR', ROC.apply(lambda TN, FP: FP / (TN + FP + 0.00000001), 'TN', 'FP'))
+		# ROC = ROC.with_column('FMEAS', ROC.apply(lambda TP, FP, FN: 2 * (TP / (TP + FN + 0.00000001)) * (TP / (TP + FP + 0.00000001)) / (TP / (TP + FN + 0.00000001) + TP / (TP + FP + 0.00000001) + 0.00000001), 'TP', 'FP', 'FN'))
+
+		final_acc += (Confusion['TP'] + Confusion['TN']) / sum(Confusion.values())
 
 	end = time.time()
 	print("Decision Tree Trained! Time: %.03fs" % ((end - start) / 10))

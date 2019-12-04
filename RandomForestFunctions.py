@@ -1,8 +1,8 @@
-#!/usr/bin/env python
-
 # Import lib
 # ===========================================================
 from sklearn import tree
+from imblearn.over_sampling import SMOTE
+from imblearn.over_sampling import SMOTENC
 import pandas as pd
 import time
 import sys
@@ -19,7 +19,7 @@ import math
 from tqdm import tqdm
 from time import sleep
 
-# Decision stump part for Adaboost
+# Decision stump part for Random Forest
 # ===========================================================
 def is_numeric(value):
     return isinstance(value, int) or isinstance(value, float)
@@ -40,7 +40,7 @@ class DecisionNode:
 class DecisionTree:
     def __init__(self, training_attribute, training_data, method = "CART"):
         self.attribute = training_attribute     # takein attribute and data separately
-        self.train = training_data[1:]
+        self.train = training_data
         self.row_num = len(self.train)
         self.column_num = len(self.attribute)
         self.method = method.upper()            # convert to upper case for general use
@@ -53,7 +53,7 @@ class DecisionTree:
     def uniq_val(self, column):
         return set([self.train[i][column] for i in range(len(self.train))])
     
-    # when raising a question.
+    # === when raising a question ===
     # if it's a categorical attribute, we simply iterate all categories
     # if it's a numeric attribute, we iterate the set of possible numeric values 
     class Question:
@@ -61,10 +61,9 @@ class DecisionTree:
             self.column = column
             self.ref_value = ref_value if ref_value else "None"
             self.attri = attribute
-            self.cate_columns = [0, 2, 3, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 19, 20, 23, 24, 25, 26, 27, 29, 30, 31]
 
         def match(self, row):
-            if is_numeric(self.ref_value) and self.column not in self.cate_columns:
+            if is_numeric(self.ref_value):
                 try:
                     return row[self.column] >= self.ref_value
                 except:
@@ -126,6 +125,7 @@ class DecisionTree:
             pass
         pass
     
+    # Divide rows according to the question to true_rows and false_rows
     # === Here I only do Binary Partitions ===
     def partition(self, rows, question):
         true_rows = []
@@ -144,7 +144,7 @@ class DecisionTree:
         for col in range(self.column_num - 1): # minus 1 to avoid using the label as attribute
             ref_candidates = self.uniq_val(col)
             for ref_value in ref_candidates:
-                if ref_value == "null": continue # avoid using null values to generate a question
+                if ref_value == "null" or not isinstance(ref_value, str) and np.isnan(ref_value): continue # avoid using null values to generate a question
                 q = self.Question(col, ref_value, self.attribute)
                 temp_true_rows, temp_false_rows = self.partition(rows, q)
                 temp_info_attenuation = self.info([temp_true_rows, temp_false_rows], rows)
@@ -152,13 +152,13 @@ class DecisionTree:
                     max_info_attenuation = temp_info_attenuation
                     best_question = q
         return max_info_attenuation, best_question
-        
+    
     # === Input rows of data with attributes and labels ===
     def build_tree(self, rows):
         # === Assign all rows as root of the whole decision tree ===
         # === We have met the leaf node if gini(rows) is 0 or no question candidates left ===
         gain_reduction, q = self.find_best_question(rows)
-        if gain_reduction <= 0.005:   # 0.01 will make the tree converge immediately
+        if gain_reduction <= 0.003:
             return LeafNode(rows)
         true_rows, false_rows = self.partition(rows, q)
         # === Recursion after we have found a optimal question ===
@@ -195,3 +195,17 @@ class DecisionTree:
         # Call this function recursively on the false branch
         print (spacing + '--> False:')
         self.print_tree(node.right_branch, spacing + "  ")
+    
+    def test(self):
+        for i in range(self.column_num):
+            q = self.Question(i, self.train[1][i], self.attribute)
+            print(q)
+            print(q.match(1))
+    
+def bootstrapped_dataset(rows, size):
+    n = len(rows)
+    bootstrapped_rows = []
+    rand_idx = np.random.choice(n, size, replace=False)
+    for i in rand_idx:
+        bootstrapped_rows.append(rows[i])
+    return bootstrapped_rows

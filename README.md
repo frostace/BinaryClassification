@@ -71,7 +71,7 @@
     
     * Overall Performance
       
-      * ACC = 75%
+      * Max Acc = 72%
     
       * AUC = 0.642
     
@@ -84,6 +84,11 @@
     * ROC -> AUC
   
       ![Random Forest ROC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Random Forest ROC.png)
+      
+	  * Performance
+  
+      * Acc = 74%
+      * AUC = 0.653
   
   * Improve with Adaboost:
   
@@ -149,11 +154,14 @@
 		* FP: Prediction is False + Predicted value is Positive
 		* TN: Prediction is True + Predicted value is Negative
 		* FN: Prediction is False + Predicted value is Negative
-	* Accuracy:
+	* Performance:
 		* Accuracy = $\frac{TP + TN}{TP + FN + FP + TN}$
 		* Sensitivity (TPR) = $\frac{TP}{TP + FN}$
+		  * Sensitivity/recall – how good a test is at detecting the positives. A test can cheat and maximize this by always returning “positive”.
 		* Specificity (1 - FPR) = $\frac{TN}{TN + FP}$
-	* Precision = $\frac{TP}{TP + FP}$
+		  * Specificity – how good a test is at avoiding false alarms. A test can cheat and maximize this by always returning “negative”.
+		* Precision = $\frac{TP}{TP + FP}$
+		  * Precision – how many of the positively classified were true. A test can cheat and maximize this by only returning positive on one result it’s most confident in.
 		* Recall = $\frac{TP}{TP + FN}$
 		* F-measure = $\frac{2Precesion\times Recall}{Precesion + Recall}$
 	

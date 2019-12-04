@@ -45,7 +45,7 @@
   
     * Acc
   
-      ![Decision Tree ACC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree ACC - before SMOTE.png)
+      ![Decision Tree ACC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree ACC.png)
   
     * ROC -> AUC
   
@@ -55,7 +55,7 @@
       
 	    1. ~~Overfitting~~, i changed the gini convergence condition to gini <= 0.01
       
-      ![Decision Tree ROC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree ROC - before SMOTE.png)
+      ![Decision Tree ROC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree ROC.png)
       
       2. Unbalanced input data
       
@@ -65,9 +65,9 @@
       
 	  * Performance Comparison
       
-      ![Decision Tree Accuracy Comparison](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree Accuracy Comparison - before SMOTE.png)
+      ![Decision Tree Time & Acc by Training percentage](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree Time & Acc by Training percentage.png)![Decision Tree Time & Sklearn Acc by Training percentage](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree Time & Sklearn Acc by Training percentage.png)
     
-      ![Decision Tree Time Consumption Comparison](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree Time Consumption Comparison - before SMOTE.png)
+      
     
     * Overall Performance
       

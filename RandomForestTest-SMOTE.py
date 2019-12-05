@@ -46,7 +46,7 @@ testing_data = all_rows[training_size: ]   # testing data don't need to include 
 
 # number of attributes to use
 # ===========================================================
-rand_attribute_subset_len = 5
+rand_attribute_subset_len = 1
 final_acc_list = []
 final_time_list = []
 final_attribute = []

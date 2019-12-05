@@ -139,6 +139,7 @@ class DecisionTree:
     
     def find_best_question(self, rows):
         max_info_attenuation = 0
+        best_question = 
         # === Iterate through all question candidates ===
         # === TODO: Maybe Iteration here can be optimized ===
         for col in range(self.column_num - 1): # minus 1 to avoid using the label as attribute

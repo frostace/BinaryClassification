@@ -14,3 +14,7 @@
 .ipynb_checkpoints/Kmeans-checkpoint[Conflict].ipynb
 __pycache__/DecisionTreeFunctions.cpython-37.pyc
 __pycache__/RandomForestFunctions.cpython-37.pyc
+.ipynb_checkpoints/clinvar_conflicting_clean-checkpoint.csv
+.ipynb_checkpoints/Decision Tree-SMOTE-checkpoint.ipynb
+.ipynb_checkpoints/Kmeans-Categorical-checkpoint.ipynb
+.ipynb_checkpoints/PlotOnSame-checkpoint.ipynb

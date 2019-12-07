@@ -19,13 +19,13 @@ Visualization Ref: https://explained.ai/decision-tree-viz/
 	
 	  * Acc
 	
-	    ![Logistic ACC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Logistic ACC.png)
+	    ![Logistic ACC](/Users/frostace/Documents/GitHub/BinaryClassification/Logistic ACC.png)
 	
 	    if we pick 0.95 as cutoff point, Accuracy would be 74.7%.
 	
 	  * ROC
 	
-	    ![Logistic ROC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Logistic ROC.png)
+	    ![Logistic ROC](/Users/frostace/Documents/GitHub/BinaryClassification/Logistic ROC.png)
 	
 	  * AUC = 0.538, slightly larger than 0.5, not so good
 	
@@ -47,7 +47,7 @@ Visualization Ref: https://explained.ai/decision-tree-viz/
   
     * Acc
   
-      ![Decision Tree ACC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree ACC - before SMOTE.png)
+      ![Decision Tree ACC](/Users/frostace/Documents/GitHub/BinaryClassification/Decision Tree ACC - before SMOTE.png)
   
     * ROC -> AUC
   
@@ -57,19 +57,19 @@ Visualization Ref: https://explained.ai/decision-tree-viz/
       
 	    1. ~~Overfitting~~, i changed the gini convergence condition to gini <= 0.01
       
-      ![Decision Tree ROC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree ROC - before SMOTE.png)
+      ![Decision Tree ROC](/Users/frostace/Documents/GitHub/BinaryClassification/Decision Tree ROC - before SMOTE.png)
       
       2. Unbalanced input data
       
          ​	F-measure = 0.284839
       
-      ![label_distribution](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/label_distribution.png)
+      ![label_distribution](/Users/frostace/Documents/GitHub/BinaryClassification/label_distribution.png)
       
 	  * Performance Comparison
       
-      ![Decision Tree Accuracy Comparison](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree Accuracy Comparison - before SMOTE.png)
+      ![Decision Tree Accuracy Comparison](/Users/frostace/Documents/GitHub/BinaryClassification/Decision Tree Accuracy Comparison - before SMOTE.png)
     
-      ![Decision Tree Time Consumption Comparison](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Decision Tree Time Consumption Comparison - before SMOTE.png)
+      ![Decision Tree Time Consumption Comparison](/Users/frostace/Documents/GitHub/BinaryClassification/Decision Tree Time Consumption Comparison - before SMOTE.png)
     
     * Overall Performance
       
@@ -81,11 +81,11 @@ Visualization Ref: https://explained.ai/decision-tree-viz/
   
     * Acc
   
-      ![Random Forest ACC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Random Forest ACC.png)
+      ![Random Forest ACC](/Users/frostace/Documents/GitHub/BinaryClassification/Random Forest ACC.png)
   
     * ROC -> AUC
   
-      ![Random Forest ROC](/Users/frostace/Documents/GitHub/DecisionTreeVisulizer/Random Forest ROC.png)
+      ![Random Forest ROC](/Users/frostace/Documents/GitHub/BinaryClassification/Random Forest ROC.png)
       
 	  * Performance
   

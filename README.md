@@ -21,13 +21,13 @@ Visualization Ref: https://explained.ai/decision-tree-viz/
 	
 	    ![Logistic ACC](/Users/frostace/Documents/GitHub/BinaryClassification/Logistic ACC.png)
 	
-	    if we pick 0.95 as cutoff point, Accuracy would be 74.7%.
+	    if we pick 0.95 as cutoff point, Accuracy would be 53.6%.
 	
 	  * ROC
 	
 	    ![Logistic ROC](/Users/frostace/Documents/GitHub/BinaryClassification/Logistic ROC.png)
 	
-	  * AUC = 0.538, slightly larger than 0.5, not so good
+	  * AUC = 0.544, slightly larger than 0.5, not so good
 	
 	* Use this result as a benchmark, let's move on and see if we can do better.
 	
@@ -47,7 +47,7 @@ Visualization Ref: https://explained.ai/decision-tree-viz/
   
     * Acc
   
-      ![Decision Tree ACC](/Users/frostace/Documents/GitHub/BinaryClassification/Decision Tree ACC - before SMOTE.png)
+      ![Decision Tree ACC](/Users/frostace/Documents/GitHub/BinaryClassification/Decision Tree ACC.png)
   
     * ROC -> AUC
   
@@ -57,7 +57,7 @@ Visualization Ref: https://explained.ai/decision-tree-viz/
       
 	    1. ~~Overfitting~~, i changed the gini convergence condition to gini <= 0.01
       
-      ![Decision Tree ROC](/Users/frostace/Documents/GitHub/BinaryClassification/Decision Tree ROC - before SMOTE.png)
+      ![Decision Tree ROC](/Users/frostace/Documents/GitHub/BinaryClassification/Decision Tree ROC.png)
       
       2. Unbalanced input data
       
@@ -73,9 +73,9 @@ Visualization Ref: https://explained.ai/decision-tree-viz/
     
     * Overall Performance
       
-      * Max Acc = 72%
+      * Max Acc = 63% | cutoff in [0.65, 0.7]
     
-      * AUC = 0.642
+      * AUC = 0.669
     
   * Improve with bootstrapping: Random Forest
   
@@ -89,8 +89,8 @@ Visualization Ref: https://explained.ai/decision-tree-viz/
       
 	  * Performance
   
-      * Acc = 74%
-      * AUC = 0.653
+      * Acc = 64%
+      * AUC = 0.697
   
   * Improve with Adaboost:
   

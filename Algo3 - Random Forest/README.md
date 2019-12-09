@@ -21,10 +21,12 @@
 
 * Performance
 	* Acc = 68.6%
-      	![image](https://github.com/frostace/BinaryClassification/blob/master/Algo3%20-%20Random%20Forest/Random%20Forest%20ACC.png)
-  
+	
+![image](https://github.com/frostace/BinaryClassification/blob/master/Algo3%20-%20Random%20Forest/Random%20Forest%20ACC.png)
+
 	* ROC -> AUC = 0.747
-      	![image](https://github.com/frostace/BinaryClassification/blob/master/Algo3%20-%20Random%20Forest/Random%20Forest%20ROC.png)
+
+![image](https://github.com/frostace/BinaryClassification/blob/master/Algo3%20-%20Random%20Forest/Random%20Forest%20ROC.png)
 
 
 ### bug track

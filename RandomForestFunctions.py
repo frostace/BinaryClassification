@@ -38,11 +38,11 @@ class DecisionNode:
         self.right_branch = right_branch
     
 class DecisionTree:
-    def __init__(self, training_attribute, training_data, method = "CART"):
-        self.attribute = training_attribute     # takein attribute and data separately
+    def __init__(self, all_attribs, training_attribs, training_data, method = "CART"):
+        self.attribute = training_attribs     # takein attribute and data separately
         self.train = training_data
         self.row_num = len(self.train)
-        self.column_num = len(self.attribute)
+        self.attribute_colNums = [all_attribs.index(att) for att in training_attribs]
         self.method = method.upper()            # convert to upper case for general use
         self.labels = self.uniq_val(-1)
         if self.method not in ["C4.5", "CART", "HYBRID"]:
@@ -57,10 +57,10 @@ class DecisionTree:
     # if it's a categorical attribute, we simply iterate all categories
     # if it's a numeric attribute, we iterate the set of possible numeric values 
     class Question:
-        def __init__(self, column, ref_value, attribute):
+        def __init__(self, column, ref_value):
             self.column = column
             self.ref_value = ref_value if ref_value else "None"
-            self.attri = attribute
+#             self.attri = attribute
 
         def match(self, row):
             if is_numeric(self.ref_value):
@@ -101,6 +101,7 @@ class DecisionTree:
         return gini
     
     # === Calculate Gain Info ===
+    # I'm actually returning the gain info reduction
     def info(self, branches, root):
         # === Objective: to find the best question which can maximize info ===
         root_size = float(len(root))
@@ -139,14 +140,14 @@ class DecisionTree:
     
     def find_best_question(self, rows):
         max_info_attenuation = 0
-        best_question = 
+        best_question = self.Question(self.attribute_colNums[0], self.train[0][self.attribute_colNums[0]])
         # === Iterate through all question candidates ===
         # === TODO: Maybe Iteration here can be optimized ===
-        for col in range(self.column_num - 1): # minus 1 to avoid using the label as attribute
+        for col in self.attribute_colNums: # minus 1 to avoid using the label as attribute
             ref_candidates = self.uniq_val(col)
             for ref_value in ref_candidates:
                 if ref_value == "null" or not isinstance(ref_value, str) and np.isnan(ref_value): continue # avoid using null values to generate a question
-                q = self.Question(col, ref_value, self.attribute)
+                q = self.Question(col, ref_value)
                 temp_true_rows, temp_false_rows = self.partition(rows, q)
                 temp_info_attenuation = self.info([temp_true_rows, temp_false_rows], rows)
                 if temp_info_attenuation >= max_info_attenuation:
@@ -159,7 +160,9 @@ class DecisionTree:
         # === Assign all rows as root of the whole decision tree ===
         # === We have met the leaf node if gini(rows) is 0 or no question candidates left ===
         gain_reduction, q = self.find_best_question(rows)
-        if gain_reduction <= 0.003:
+        # gain here is actually info reduction
+#         if gain_reduction <= 0.001:
+        if self.gini(rows) <= 0.3:
             return LeafNode(rows)
         true_rows, false_rows = self.partition(rows, q)
         # === Recursion after we have found a optimal question ===
@@ -197,16 +200,17 @@ class DecisionTree:
         print (spacing + '--> False:')
         self.print_tree(node.right_branch, spacing + "  ")
     
-    def test(self):
+'''    def test(self):
         for i in range(self.column_num):
             q = self.Question(i, self.train[1][i], self.attribute)
             print(q)
-            print(q.match(1))
+            print(q.match(1))'''
     
 def bootstrapped_dataset(rows, size):
     n = len(rows)
     bootstrapped_rows = []
-    rand_idx = np.random.choice(n, size, replace=False)
+    # here i should pick rand_idx with replacement, which is bootstrapping
+    rand_idx = np.random.choice(n, size, replace=True)
     for i in rand_idx:
         bootstrapped_rows.append(rows[i])
     return bootstrapped_rows

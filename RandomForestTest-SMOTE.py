@@ -30,7 +30,13 @@ df[['CLNVI', 'MC', 'SYMBOL', 'Feature_type', 'Feature', 'BIOTYPE',
  'cDNA_position', 'CDS_position', 'Protein_position', 'Amino_acids', 'Codons', 
  'BAM_EDIT', 'SIFT', 'PolyPhen']] = df[['CLNVI', 'MC', 'SYMBOL', 'Feature_type', 'Feature', 'BIOTYPE', 
  'cDNA_position', 'CDS_position', 'Protein_position', 'Amino_acids', 'Codons', 
- 'BAM_EDIT', 'SIFT', 'PolyPhen']].fillna(value="null")
+ 'BAM_EDIT', 'SIFT', 'PolyPhen']].fillna(value=0)
+df_zero = df.loc[df['CLASS'] == 0]
+df_zero = df_zero.sample(n=10000)
+df_one = df.loc[df['CLASS'] == 1]
+df_one = df_one.sample(n=10000)
+
+df = pd.concat([df_zero, df_one])
 df = df.sample(n = df.shape[0])
 all_rows = df.values.tolist()
 row_num = len(all_rows)
@@ -46,7 +52,7 @@ testing_data = all_rows[training_size: ]   # testing data don't need to include 
 
 # number of attributes to use
 # ===========================================================
-rand_attribute_subset_len = 1
+rand_attribute_subset_len = 5
 final_acc_list = []
 final_time_list = []
 final_attribute = []
@@ -54,7 +60,7 @@ forest_size = 1
 test_times = 4
 
 for fixed_attribute in training_attribute:
-	remaining_attribute = list(training_attribute)
+	remaining_attribute = list(training_attribute)[: -1]
 	remaining_attribute.remove(fixed_attribute)
 
 	print("Training for: %s" % fixed_attribute)
@@ -74,7 +80,7 @@ for fixed_attribute in training_attribute:
 			rand_attribute_subset = np.append(rand_attribute_subset, fixed_attribute)
 			# print(rand_attribute_subset)
 			training_data = bootstrapped_dataset(all_rows, training_size)
-			tree = DecisionTree(rand_attribute_subset, training_data, "CART")
+			tree = DecisionTree(training_attribute, rand_attribute_subset, training_data, "CART")
 			# tree.print_tree(tree.root)
 			random_forest.append(tree)
 

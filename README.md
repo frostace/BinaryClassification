@@ -49,3 +49,7 @@ https://www.kaggle.com/kevinarvai/clinvar-conflicting
 		* the steeper the ROC Curve, the greater the predictive power
 		* AUC = 0.5 -> no predictive power
 		* AUC = 1 -> perfect predictive power
+
+![image](https://github.com/frostace/BinaryClassification/blob/master/Pres/Accuracy%20-%20Cutoff%20Comparison.png)
+
+![image](https://github.com/frostace/BinaryClassification/blob/master/Pres/ROC%20Curve%20Comparison.png)

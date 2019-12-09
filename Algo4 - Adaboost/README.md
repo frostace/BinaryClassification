@@ -48,9 +48,11 @@ Ref: https://www.youtube.com/watch?v=LsK-xG1cLYA
 ### Performance
 * Acc = 66.2%
 	* image looks incontinuous because i trained adaboost for different cutoffs separately, it took me too long to train a single model
+	
 ![image](https://github.com/frostace/BinaryClassification/blob/master/Algo4%20-%20Adaboost/Adaboost%20ACC.png)
 
 * ROC -> AUC = 0.679
+
 ![image](https://github.com/frostace/BinaryClassification/blob/master/Algo4%20-%20Adaboost/Adaboost%20ROC.png)
 
 ### bug track

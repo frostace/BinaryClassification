@@ -23,5 +23,6 @@
 1. Looks good, but cutoff is not working, try printing true rate values
 	* ~~Overfitting~~, i changed the gini convergence condition to gini <= 0.01, to make it converge fast
 
-2. Unbalanced input data, the algo is cheating to reach an acc of 74.7%, which is the original distribution of label0 in the dataset
+2. Imbalanced input data, the algo is cheating to reach an acc of 74.7%, which is the original distribution of label0 in the dataset
 	* F-measure = 0.284839
+![image](https://github.com/frostace/BinaryClassification/blob/master/Algo2%20-%20Decision%20Tree/Imbalance%20Data.png)

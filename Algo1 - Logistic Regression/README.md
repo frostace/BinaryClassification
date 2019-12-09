@@ -1,4 +1,6 @@
 ## Logistic Regression:
+TBD: Prof. told me that it's inappropriate to map the categorical data to numerical values for logistic regression, 
+because my result is binary, i don't fully understand this comment.
 
 ### Notation:
 1. X: n-dimentional input characteristics

@@ -1,3 +1,5 @@
+# Decision Tree
+Algo intro - TBD
 
 * We can tell apart a dog from a cat immediately with a glance, but what if we cannot see the whole picture, we are just allowed to ask yes or no questions??
 

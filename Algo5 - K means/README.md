@@ -20,4 +20,14 @@ How to select K?
 Ref: https://www.youtube.com/watch?v=4b5d3muPQmA
 
 
+### Performance
+* Acc = 60% | cutoff = 0.4
 
+![image](https://github.com/frostace/BinaryClassification/blob/master/Algo5%20-%20K%20means/K%20means%20ACC.png)
+
+* ROC -> MESSY
+
+![image](https://github.com/frostace/BinaryClassification/blob/master/Algo5%20-%20K%20means/K%20means%20ROC.png)
+
+  * why not working
+  * b.c. i mapped the categorical data to numerical data, then i disturbed the categorical similarity and replaced it with a random numerical similarity related with their indices.

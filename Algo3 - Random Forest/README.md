@@ -19,12 +19,12 @@
 [Ref] (https://www.youtube.com/watch?v=J4Wdy0Wc_xQ)
 
 
-* Performance
-  * Acc = 68.6%
+### Performance
+* Acc = 68.6%
 	
 ![image](https://github.com/frostace/BinaryClassification/blob/master/Algo3%20-%20Random%20Forest/Random%20Forest%20ACC.png)
 
-  * ROC -> AUC = 0.747
+* ROC -> AUC = 0.747
 
 ![image](https://github.com/frostace/BinaryClassification/blob/master/Algo3%20-%20Random%20Forest/Random%20Forest%20ROC.png)
 

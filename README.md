@@ -13,7 +13,7 @@ Visualization Ref: https://explained.ai/decision-tree-viz/
 	* With label unknown, compare the 2 results.
   	* Methodology: K-means Clustering
 
-# Original Dataset
+# Dataset
 https://www.kaggle.com/kevinarvai/clinvar-conflicting
 
 # Performance Evaluation:
@@ -50,6 +50,39 @@ https://www.kaggle.com/kevinarvai/clinvar-conflicting
 		* AUC = 0.5 -> no predictive power
 		* AUC = 1 -> perfect predictive power
 
+# Outcome
 ![image](https://github.com/frostace/BinaryClassification/blob/master/Pres/Accuracy%20-%20Cutoff%20Comparison.png)
 
 ![image](https://github.com/frostace/BinaryClassification/blob/master/Pres/ROC%20Curve%20Comparison.png)
+
+# Documentation
+
+Read more about
+
+  * [States and Transitions](docs/states-and-transitions.md)
+  * [Data and Methods](docs/data-and-methods.md)
+  * [Lifecycle Events](docs/lifecycle-events.md)
+  * [Asynchronous Transitions](docs/async-transitions.md)
+  * [Initialization](docs/initialization.md)
+  * [Error Handling](docs/error-handling.md)
+  * [State History](docs/state-history.md)
+  * [Visualization](docs/visualization.md)
+  * [State Machine Factory](docs/state-machine-factory.md)
+  * [Upgrading from 2.x](docs/upgrading-from-v2.md)
+ 
+# Contributing
+
+You can [Contribute](docs/contributing.md) to this project with issues or pull requests.
+
+# Release Notes
+
+See [RELEASE NOTES](RELEASE_NOTES.md) file.
+
+# License
+
+See [MIT LICENSE](https://github.com/frostace/BinaryClassification/blob/master/LICENSE) file.
+
+# Contact
+
+If you have any ideas, feedback, requests or bug reports, you can reach me at
+[frostace0723@gmail.com](mailto:frostace0723@gmail.com)

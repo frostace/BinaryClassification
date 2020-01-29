@@ -59,16 +59,11 @@ https://www.kaggle.com/kevinarvai/clinvar-conflicting
 
 Read more about
 
-  * [States and Transitions](docs/states-and-transitions.md)
-  * [Data and Methods](docs/data-and-methods.md)
-  * [Lifecycle Events](docs/lifecycle-events.md)
-  * [Asynchronous Transitions](docs/async-transitions.md)
-  * [Initialization](docs/initialization.md)
-  * [Error Handling](docs/error-handling.md)
-  * [State History](docs/state-history.md)
-  * [Visualization](docs/visualization.md)
-  * [State Machine Factory](docs/state-machine-factory.md)
-  * [Upgrading from 2.x](docs/upgrading-from-v2.md)
+  * [Logistic Regression](Algo1 - Logistic Regression/README.md)
+  * [Decision Tree](Algo2 - Decision Tree/README.md)
+  * [Random Forest](Algo3 - Random Forest/README.md)
+  * [Adaboost](Algo4 - Adaboost/README.md)
+  * [K Means](Algo5 - K means/README.md)
  
 # Contributing
 
